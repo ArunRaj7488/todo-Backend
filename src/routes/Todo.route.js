@@ -8,8 +8,10 @@ router.post("/create", TodoServices.createTodo);
 router.get("/get/all", TodoServices.getAllTodoList);
 // Get by query todo route
 router.post("/get/by/query", TodoServices.getTodoListByQuery);
-// Get by query todo route
+// update todo route
 router.put("/update/:id", TodoServices.updateTodo);
+// update on all select and deselect route
+router.post("/update/all-marked", TodoServices.updateAll);
 
 // Delete single  todo route
 router.delete("/delete/single/:id", TodoServices.deleteSingleTodoById);
