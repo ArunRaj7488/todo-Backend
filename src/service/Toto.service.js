@@ -7,9 +7,9 @@ const Todo = require("../model/Todo.model");
 
 createTodo = async (req, res, next) => {
   try {
-    let todoData = req["body"];
-    let todo = new Todo(todoData);
-    let result = await todo.save();
+    const todoData = req["body"];
+    const todo = new Todo(todoData);
+    const result = await todo.save();
     res.send(result);
   } catch (error) {
     res.status(400).send(error);
@@ -21,7 +21,7 @@ createTodo = async (req, res, next) => {
  */
 getAllTodoList = async (req, res, next) => {
   try {
-    let todoList = await Todo.find();
+    const todoList = await Todo.find();
     res.send(todoList);
   } catch (error) {
     res.status(400).send(error);
@@ -34,8 +34,8 @@ getAllTodoList = async (req, res, next) => {
 
 getTodoListByQuery = async (req, res, next) => {
   try {
-    let query = req.body;
-    let todoList = await Todo.find(query);
+    const query = req.body;
+    const todoList = await Todo.find(query);
     res.send(todoList);
   } catch (error) {
     res.status(400).send(error);
@@ -48,9 +48,9 @@ getTodoListByQuery = async (req, res, next) => {
  */
 updateTodo = async (req, res, next) => {
   try {
-    let id = req.params["id"];
-    let data = req.body;
-    let result = await Todo.findOneAndUpdate(
+    const id = req.params["id"];
+    const data = req.body;
+    const result = await Todo.findOneAndUpdate(
       { _id: id },
       { $set: data },
       { new: true, useFindAndModify: false, runValidators: true }
@@ -67,8 +67,8 @@ updateTodo = async (req, res, next) => {
 
 deleteSingleTodoById = async (req, res, next) => {
   try {
-    let todoId = req.params["id"];
-    let todo = await Todo.findOneAndDelete({ _id: todoId });
+    const todoId = req.params["id"];
+    const todo = await Todo.findOneAndDelete({ _id: todoId });
     res.send(todo);
   } catch (error) {
     res.status(400).send(error);
@@ -82,8 +82,8 @@ deleteSingleTodoById = async (req, res, next) => {
 
 deleteMayTodoByIds = async (req, res, next) => {
   try {
-    let todoIds = req["body"];
-    let todo = await Todo.deleteMany({ _id: { $in: todoIds } });
+    const todoIds = req["body"];
+    const todo = await Todo.deleteMany({ _id: { $in: todoIds } });
     res.send(todo);
   } catch (error) {
     res.status(400).send(error);
