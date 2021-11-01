@@ -2,7 +2,6 @@ const TodoModel = require("../model/Todo.model");
 
 /**
  * Create Todo list
- * @Params todoData
  */
 
 createTodo = async (req, res, next) => {
@@ -29,7 +28,6 @@ getAllTodoList = async (req, res, next) => {
 };
 /**
  * Get TodoList By query
- * Params @query
  */
 
 getTodoListByQuery = async (req, res, next) => {
@@ -44,7 +42,6 @@ getTodoListByQuery = async (req, res, next) => {
 
 /**
  * update todo list
- * Params @id @data
  */
 updateTodo = async (req, res, next) => {
   try {
@@ -79,7 +76,6 @@ updateAll = async (req, res, next) => {
 };
 /**
  * Delete single todo By id
- * params @todoId
  */
 
 deleteSingleTodoById = async (req, res, next) => {
@@ -94,9 +90,7 @@ deleteSingleTodoById = async (req, res, next) => {
 
 /**
  * Delete Many todo By theirs Id
- * params @todoId
  */
-
 deleteMayTodoByIds = async (req, res, next) => {
   try {
     const todoIds = req["body"];
